@@ -58,7 +58,7 @@ git clone https://github.com/seuusuario/seuprojeto.git
 3. crie um arquivo .env 
 
 
-4. Agora, edite os arquivos .env com as configurações corretas para o seu ambiente.
+4. Agora, edite os arquivos .env com as variáveis de ambinete do arquivo .env.example.
 
 
 5.Instale as dependências do projeto:
