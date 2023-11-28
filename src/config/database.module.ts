@@ -5,11 +5,16 @@ import { dirname } from 'path';
 
 dotenv.config();
 
+const isDocker = process.env.DOCKER;
+const dbHost = isDocker
+  ? process.env.POSTGRES_HOST_DOCKER
+  : process.env.POSTGRES_HOST;
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.POSTGRES_HOST,
+      host: dbHost,
       port: parseInt(process.env.POSTGRES_PORT),
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,

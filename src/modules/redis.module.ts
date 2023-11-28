@@ -9,8 +9,12 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     {
       provide: 'Redis',
       useFactory: (configService: ConfigService) => {
+        const isDocker = process.env.DOCKER;
+        const redisHost = isDocker
+          ? configService.get('REDIS_HOST_DOCKER')
+          : configService.get('REDIS_HOST');
         return new Redis({
-          host: configService.get('REDIS_HOST') || 'localhost',
+          host: redisHost || 'localhost',
           port: Number(configService.get('REDIS_PORT')) || 6379,
         });
       },

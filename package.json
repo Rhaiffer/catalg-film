@@ -12,7 +12,7 @@
   "start:dev": "npm test && nodemon",
   "start:debug": "nest start --debug --watch",
   "start:prod": "node dist/main",
-  "start:docker": "cp .env .env.backup && cp .env.docker .env && npm test && docker-compose up && mv .env.backup .env",
+  "start:docker": "npm test && docker-compose up",
   "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
   "test": "jest",
   "test:watch": "jest --watch",
