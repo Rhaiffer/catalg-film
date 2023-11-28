@@ -55,10 +55,10 @@ git clone https://github.com/seuusuario/seuprojeto.git
   cd teste-mks
 ```
 
-3. crie um arquivo .env e um  .env.docker 
+3. crie um arquivo .env 
 
 
-4. Agora, edite os arquivos .env e .env.docker com as configurações corretas para o seu ambiente.
+4. Agora, edite os arquivos .env com as configurações corretas para o seu ambiente.
 
 
 5.Instale as dependências do projeto:
