@@ -24,8 +24,6 @@
 
 # Teste-MKS
 
-# Teste-MKS
-
 Este projeto é um gerenciador de catálogos de filmes, onde você pode cadastrar e gerenciar seus filmes favoritos. Ele permite que você mantenha um registro de todos os seus filmes, tornando mais fácil para você encontrar e organizar seus filmes. Com este projeto, você nunca mais terá que se perguntar onde está aquele seu filme favorito.
 
 ## Começando
