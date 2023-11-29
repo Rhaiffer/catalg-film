@@ -33,9 +33,31 @@ export class FilmCatalogService {
     }
     return film;
   }
+  async existsByNameAndYear(name: string, year: number): Promise<boolean> {
+    const existingFilm = await this.filmCatalogRepository.findOne({
+      where: { name, year },
+    });
 
+    return !!existingFilm;
+  }
   async create(data: CreateFilmDto) {
-    const filmCatalog = this.filmCatalogRepository.create(data);
+    const normalizedData = {
+      ...data,
+      name: data.name.toLowerCase(),
+      year: Number(data.year),
+    };
+
+    const existingFilm = await this.filmCatalogRepository.findOne({
+      where: { name: normalizedData.name, year: normalizedData.year },
+    });
+
+    if (existingFilm) {
+      throw new Error(
+        'Um filme com o mesmo nome e ano de lançamento já existe',
+      );
+    }
+
+    const filmCatalog = this.filmCatalogRepository.create(normalizedData);
     return this.filmCatalogRepository.save(filmCatalog);
   }
 

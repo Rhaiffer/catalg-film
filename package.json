@@ -6,19 +6,19 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-  "build": "nest build",
-  "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-  "start": "npm run start:prod",
-  "start:dev": "npm test && nodemon",
-  "start:debug": "nest start --debug --watch",
-  "start:prod": "node dist/main",
-  "start:docker": "docker-compose up",
-  "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-  "test": "jest",
-  "test:watch": "jest --watch",
-  "test:cov": "jest --coverage",
-  "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-  "test:e2e": "jest --config ./test/jest-e2e.json"
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "npm run start:prod",
+    "start:dev": "npm test && nodemon",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "start:docker": "docker-compose up",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/cache-manager": "^2.1.1",
@@ -53,6 +53,7 @@
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",
     "@types/bcrypt": "^5.0.2",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.2",
     "@types/node": "^20.3.1",
@@ -74,21 +75,24 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.3"
   },
- "jest": {
-  "moduleFileExtensions": [
-    "js",
-    "json",
-    "ts"
-  ],
-  "rootDir": ".",
-  "testMatch": ["**/src/**/*.spec.ts", "**/test/**/*.spec.ts"],
-  "transform": {
-    "^.+\\.(t|j)s$": "ts-jest"
-  },
-  "collectCoverageFrom": [
-    "**/*.(t|j)s"
-  ],
-  "coverageDirectory": "../coverage",
-  "testEnvironment": "node"
-}
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": ".",
+    "testMatch": [
+      "**/src/**/*.spec.ts",
+      "**/test/**/*.spec.ts"
+    ],
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
 }

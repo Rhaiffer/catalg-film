@@ -1,4 +1,5 @@
-import { Injectable } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import { Injectable, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FindOneOptions, Repository } from 'typeorm';
 import { CreateUserDto } from '../controllers/users/dto/create-user.dto';
@@ -30,9 +31,22 @@ export class UsersService {
     }
   }
 
+  async existsByEmail(email: string): Promise<boolean> {
+    const count = await this.userRepository.count({ where: { email } });
+    return count > 0;
+  }
+
   async create(data: CreateUserDto) {
-    const user = this.userRepository.create(data);
-    return this.userRepository.save(user);
+    return this.userRepository.manager.transaction(async (manager) => {
+      if (await this.existsByEmail(data.email)) {
+        throw new BadRequestException(
+          'O e-mail informado já está em uso. Por favor, tente outro e-mail.',
+        );
+      }
+
+      const user = this.userRepository.create(data);
+      return await manager.save(user);
+    });
   }
 
   async update(id: string, data: UpdateUserDto) {

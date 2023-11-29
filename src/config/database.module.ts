@@ -20,7 +20,6 @@ const dbHost = isDocker
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
       entities: [dirname(__dirname) + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
     }),
   ],
 })
