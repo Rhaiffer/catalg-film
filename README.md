@@ -64,7 +64,13 @@ git clone https://github.com/seuusuario/seuprojeto.git
 5.Instale as dependências do projeto:
 
 
-6.Inicie o projeto, ele irá rodas os testes automaticamente
+6.Inicie o projeto
+```bash
+$ npm run build
+```
+
+E depois utilize o comando:
+
 ```bash
 # development
 $ npm run start
