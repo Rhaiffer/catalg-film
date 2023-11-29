@@ -72,18 +72,22 @@ $ npm run build
 E depois utilize o comando:
 
 ```bash
-# development
 $ npm run start
 ```
 7.Para iniciar o Docker, abra um novo terminal e execute:
 ```bash
-docker-compose up
+$ docker-compose up
 ```
 Se você deseja parar o Docker, abra um novo terminal e execute:
 ```bash
-docker-compose down
+$ docker-compose down
 ```
 Agora, o seu projeto deve estar rodando em localhost:3000 (ou a porta que você definiu no seu arquivo .env).
+
+8. Para rodar os testes basta utilizar o comando:
+```bash
+$ npm test
+```
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
