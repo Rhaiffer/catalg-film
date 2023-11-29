@@ -37,6 +37,9 @@ export class UsersService {
   }
 
   async create(data: CreateUserDto) {
+    if (!data.email || !data.email.includes('@')) {
+    throw new BadRequestException('E-mail inválido');
+  }
     return this.userRepository.manager.transaction(async (manager) => {
       if (await this.existsByEmail(data.email)) {
         throw new BadRequestException(
