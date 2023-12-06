@@ -47,12 +47,12 @@ Siga os passos abaixo para configurar um ambiente de desenvolvimento:
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seuusuario/seuprojeto.git
+git clone https://github.com/Rhaiffer/catalg-film
 ```
 
 2. Navegue até o diretório do projeto:
 ```bash
-  cd teste-mks
+  cd catalog-film
 ```
 
 3. crie um arquivo .env 
